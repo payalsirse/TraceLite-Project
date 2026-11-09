@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}Dashboard | TraceLite{% endblock %}{% block content %}
+<div class="heading"><div><small>OVERVIEW</small><h1>Dashboard</h1><p>Summary of your tracking links and visits.</p></div><a class="secondary button" href="{{ url_for('analytics') }}">View analytics →</a></div>
+<div class="stats"><div class="panel"><span>Total visits</span><b>{{ total_visits }}</b></div><div class="panel"><span>Generated links</span><b>{{ total_links }}</b></div><div class="panel"><span>Browser categories</span><b>{{ browsers|length }}</b></div></div>
+<div class="columns"><section class="panel"><h2>Browsers</h2>{% for x in browsers %}<p class="split">{{ x.browser }} <b>{{ x.total }}</b></p>{% else %}<p class="muted">No visits yet.</p>{% endfor %}</section><section class="panel"><h2>Devices</h2>{% for x in devices %}<p class="split">{{ x.device }} <b>{{ x.total }}</b></p>{% else %}<p class="muted">No visits yet.</p>{% endfor %}</section></div>
+<section class="panel"><h2>Recent visits</h2>{% include "_table.html" %}</section>{% endblock %}

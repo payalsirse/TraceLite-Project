@@ -1,0 +1,1 @@
+function copyLink(){const x=document.getElementById("generatedLink");if(!x)return;x.select();x.setSelectionRange(0,99999);navigator.clipboard.writeText(x.value).then(()=>alert("Tracking link copied!")).catch(()=>alert("Please copy the selected link manually."));}
